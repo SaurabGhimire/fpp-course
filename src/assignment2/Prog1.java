@@ -1,5 +1,5 @@
 package assignment2;
-
+import java.util.*;
 public class Prog1 {
     public static void main(String[] args) {
         int randomInt = RandomNumbers.getRandomInt(1, 9);

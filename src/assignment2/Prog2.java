@@ -1,6 +1,8 @@
 
 package assignment2;
 
+import java.util.Arrays;
+
 public class Prog2 {
     public static void main(String[] args){
 //column names: productId, name,numInStock,provider,pricePerUnit
@@ -28,7 +30,11 @@ public class Prog2 {
                 "777X,Dog Bone,15,Wilco,4.15:"+
                 "933W,Cat Toy,15,Wilco,2.35:"+
                 "215A,Hair Ball,0,Little Jimmy,0.00:";
-    }
 
-// Implement the code
+        String[] splittedRecords = records.split(":");
+        for(String x:splittedRecords){
+            String productID = x.split(",")[0];
+            System.out.println(productID);
+        }
+    }
 }
