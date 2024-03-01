@@ -1,4 +1,4 @@
-package assignment4.problem1;
+package assignment4.problem3;
 
 public class SumOfElementsInArray {
     public static void main(String[] args) {
