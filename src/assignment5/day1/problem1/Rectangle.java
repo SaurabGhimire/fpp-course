@@ -1,4 +1,4 @@
-package assignment5.day1;
+package assignment5.day1.problem1;
 
 public class Rectangle extends Shape {
     double height;
