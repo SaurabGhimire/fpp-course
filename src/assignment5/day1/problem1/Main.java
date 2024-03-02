@@ -12,9 +12,13 @@ public class Main {
     }
 
     public static void printTotal(Shape[] shapes) {
+        double sumOfArea = 0.0;
+        double sumOfPerimeter = 0.0;
         for (Shape shape : shapes) {
-            System.out.println("The area is : " + shape.calculateArea());
-            System.out.println("The parameter is : " + shape.calculatePerimeter());
+            sumOfArea += shape.calculateArea();
+            sumOfPerimeter += shape.calculatePerimeter();
         }
+        System.out.println("The total area is : " + sumOfArea);
+        System.out.println("The total parameter is : " + sumOfPerimeter);
     }
 }
