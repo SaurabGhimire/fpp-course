@@ -1,4 +1,4 @@
-package assignment5.day2;
+package assignment5.day2.problem3;
 
 public class Vertical implements Figure {
     @Override

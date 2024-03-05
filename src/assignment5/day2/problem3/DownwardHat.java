@@ -1,4 +1,4 @@
-package assignment5.day2;
+package assignment5.day2.problem3;
 
 public class DownwardHat implements Figure {
     @Override

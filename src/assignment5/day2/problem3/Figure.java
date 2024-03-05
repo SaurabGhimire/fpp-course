@@ -1,4 +1,4 @@
-package assignment5.day2;
+package assignment5.day2.problem3;
 
 //Here is a list of the things you need to do for this problem:
 //a. Create an Interface Figure with void getFigure() method need to print the figure.
@@ -20,4 +20,5 @@ public interface Figure {
     void getFigure();
 
     void printClassNameAndFigure();
+
 }
