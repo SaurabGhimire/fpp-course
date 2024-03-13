@@ -1,4 +1,4 @@
-package assignment8;
+package assignment8.prob1;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package assignment8;
+package assignment8.prob1;
 
 class Person {
     private String lastName;
