@@ -14,6 +14,8 @@ public class StackLinkedListImpl {
 
         MyLinkedList() {
         }
+
+
     }
 
     private MyLinkedList list;
@@ -23,8 +25,9 @@ public class StackLinkedListImpl {
     }
 
     public void push(Object item) {
+        MyLinkedList temp = new MyLinkedList();
         while (list.next != null) {
-            list = list.next;
+            temp = list.next;
         }
         list.next = new MyLinkedList(item);
     }
@@ -36,18 +39,19 @@ public class StackLinkedListImpl {
         }
         Object item;
         // only one item
-        if(list.next == null){
+        if (list.next == null) {
             item = list.val;
             list.val = null;
-            return null;
+            return item;
         }
         // more than one item
         MyLinkedList temp = list;
         while (list.next.next != null) {
             item = list.next;
+            list.next = null;
+            return item;
         }
-
-        return
+        return null;
     }
 
     public boolean isEmpty() {
@@ -59,7 +63,7 @@ public class StackLinkedListImpl {
             return null;
         }
         Object val = list.val;
-        while (list.next != null){
+        while (list.next != null) {
             val = list.next;
         }
         System.out.println("Peeking stack: " + val);
@@ -68,12 +72,13 @@ public class StackLinkedListImpl {
 
     public int size() {
         int count = 0;
-        while (list.next != null){
+        while (list.next != null) {
             count++;
         }
         System.out.println("Size of stack: " + count);
         return count;
     }
+
 
     public static void main(String[] args) {
         StackLinkedListImpl a = new StackLinkedListImpl();
