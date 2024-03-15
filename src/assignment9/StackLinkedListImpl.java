@@ -25,11 +25,17 @@ public class StackLinkedListImpl {
     }
 
     public void push(Object item) {
-        MyLinkedList temp = new MyLinkedList();
-        while (list.next != null) {
+        // No items in list
+        if (list.val == null) {
+            list = new MyLinkedList(item);
+            return;
+        }
+        // More than 2 items in list
+        MyLinkedList temp = list;
+        while (temp.next != null) {
             temp = list.next;
         }
-        list.next = new MyLinkedList(item);
+        temp.next = new MyLinkedList(item);
     }
 
     public Object pop() {
@@ -42,16 +48,18 @@ public class StackLinkedListImpl {
         if (list.next == null) {
             item = list.val;
             list.val = null;
+            System.out.println("Popping value: " + item);
             return item;
         }
         // more than one item
         MyLinkedList temp = list;
-        while (list.next.next != null) {
-            item = list.next;
-            list.next = null;
-            return item;
+        while (temp.next.next != null) { // 1 - 2 - 3 - 4 - 5 - null
+            temp = list.next;
         }
-        return null;
+        item = temp.next.val;
+        temp.next = null;
+        System.out.println("Popping value: " + item);
+        return item;
     }
 
     public boolean isEmpty() {
@@ -59,20 +67,24 @@ public class StackLinkedListImpl {
     }
 
     public Object peek() {
+        System.out.println("Inside peek");
         if (isEmpty()) {
+            System.out.println("Empty");
             return null;
         }
-        Object val = list.val;
-        while (list.next != null) {
-            val = list.next;
+        MyLinkedList temp = list;
+        while (temp.next != null) {
+            temp = temp.next;
         }
-        System.out.println("Peeking stack: " + val);
-        return val;
+        System.out.println("Peeking stack: " + temp.val);
+        return temp.val;
     }
 
     public int size() {
-        int count = 0;
-        while (list.next != null) {
+        int count = list.val == null ? 0 : 1;
+        MyLinkedList temp = list;
+        while (temp.next != null) {
+            temp = temp.next;
             count++;
         }
         System.out.println("Size of stack: " + count);
@@ -83,15 +95,24 @@ public class StackLinkedListImpl {
     public static void main(String[] args) {
         StackLinkedListImpl a = new StackLinkedListImpl();
         a.push(10);
+        a.size();
+        a.peek();
         a.push("Alpha");
+        a.size();
+        a.peek();
         a.push("Henry");
-        System.out.println(a.pop());
-
-        Stack<Integer> s = new Stack<Integer>();
-        s.push(42);
-        s.push(-3);
-        s.push(17);
-        System.out.println(s.pop());
+        a.size();
+        a.peek();
+        System.out.println(" ----- ");
+        a.pop();
+        a.size();
+        a.peek();
+        a.pop();
+        a.size();
+        a.peek();
+        a.pop();
+        a.size();
+        a.peek();
     }
 
 
